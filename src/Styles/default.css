@@ -1,0 +1,59 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	font-family: 'Nunito Sans', sans-serif;
+}
+
+:root {
+	/*  (Dark Mode Elements) */
+	--Pale-Dark-Blue: hsl(209, 23%, 22%);
+	/* (Dark Mode Background)  */
+	--Dark-Blue: hsl(207, 26%, 17%);
+	/* (Light Mode Text) */
+	--Very-Dark-Blue: hsl(200, 15%, 8%);
+	/*  (Light Mode Input) */
+	--Dark-Gray: hsl(0, 0%, 52%);
+	/*  (Light Mode Background) */
+	--Very-Light-Gray: hsl(0, 0%, 98%);
+	/* (Dark Mode Text & Light Mode Elements) */
+	--white: hsl(0, 0%, 100%);
+}
+
+@media (prefers-color-scheme: light) {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	i {
+		color: var(--Dark-Blue);
+	}
+}
+@media (prefers-color-scheme: dark) {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	i {
+		color: var(--white);
+	}
+	body {
+		background-color: var(--Dark-Blue);
+	}
+	nav,
+	.box,
+	a,
+	.border,
+	button {
+		background-color: var(--Pale-Dark-Blue);
+	}
+	button {
+		border: none;
+	}
+}
