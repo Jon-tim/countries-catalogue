@@ -23,14 +23,14 @@
 
 <style>
 	main {
-		/* margin: 0 auto; */
 		padding: 2rem 0rem;
 	}
 	section {
 		display: flex;
-		justify-content: center;
 		align-items: center;
 		flex-wrap: wrap;
 		gap: 2rem;
+		justify-content: center;
 	}
+	
 </style>

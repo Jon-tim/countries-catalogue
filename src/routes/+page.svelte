@@ -12,7 +12,7 @@
 <style>
 	main {
 		padding: 1rem;
-		max-width: 1200px;
+		max-width: 1250px;
 		margin: 0 auto;
 	}
 </style>

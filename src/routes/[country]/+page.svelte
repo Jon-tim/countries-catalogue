@@ -64,8 +64,17 @@
 		padding: 0.5rem 1rem;
 		cursor: pointer;
 	}
-
+	@media screen and (min-width: 520px) {
+		main {
+			padding-inline: 2rem;
+		}
+	}
 	@media screen and (min-width: 768px) {
+		main {
+			padding-inline: 2rem;
+		}
+	}
+	@media screen and (min-width: 1200px) {
 		main {
 			padding-inline: 0rem;
 		}

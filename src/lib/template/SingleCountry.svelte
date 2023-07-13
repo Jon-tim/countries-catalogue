@@ -11,16 +11,13 @@
 	export let currency;
 	export let languages;
 	export let borderCountries;
-	// console.log(borderCountries);
-
-	//https://restcountries.com/v3.1/alpha?codes=fra == by code
 </script>
 
 <section>
 	<div class="img-holder">
 		<img src={flag} {alt} />
 	</div>
-	<div>
+	<div class="country-info">
 		<h1>{name}</h1>
 		<aside>
 			<div class="details">
@@ -42,7 +39,7 @@
 				</div>
 				<div class="key-values">
 					<p class="key">capital:</p>
-					<span class="value">{capital}</span>
+					<span class="value">{capital.join(', ')}</span>
 				</div>
 			</div>
 			<div class="details">
@@ -54,29 +51,29 @@
 					<p class="key">currencies:</p>
 					<span class="value">{currency}</span>
 				</div>
-				<div class="key-values">
+				<div class="key-values lang">
 					<p class="key">languages:</p>
-					<span class="value">{languages }</span>
-				</div>
-				<div class="key-values border-section">
-					<p class="key">border countries:</p>
-					<div class="borders">
-						{#if borderCountries.length == 0 || borderCountries == undefined}
-							<div class="noBorder">
-								<p>Seems this country has no bordering country 🚫 🌍</p>
-								<button on:click={() => window.history.back()}>Click here to go back home</button>
-							</div>
-						{:else}
-							{#each borderCountries as border, id (id)}
-								<a href={`/${border}`} class="border">
-									<p>{border}</p>
-								</a>
-							{/each}
-						{/if}
-					</div>
+					<span class="value">{languages.join(', ')}</span>
 				</div>
 			</div>
 		</aside>
+		<div class="key-values border-section">
+			<p class="key">border countries:</p>
+			<div class="borders">
+				{#if borderCountries.length == 0 || borderCountries == undefined}
+					<div class="noBorder">
+						<p>Seems this country has no bordering country 🚫 🌍</p>
+						<button on:click={() => window.history.back()}>Click here to go back home</button>
+					</div>
+				{:else}
+					{#each borderCountries as border, id (id)}
+						<a href={`/${border}`} class="border">
+							<p>{border}</p>
+						</a>
+					{/each}
+				{/if}
+			</div>
+		</div>
 	</div>
 </section>
 
@@ -91,6 +88,7 @@
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
+		width: 100%;
 	}
 
 	h1 {
@@ -101,14 +99,21 @@
 	}
 	img {
 		width: 100%;
-		height: 250px;
-		object-fit: fill;
+		height: 300px;
+		object-fit: cover;
 		object-position: center;
 	}
 	p,
 	span {
 		display: inline-block;
 	}
+
+	.lang span {
+		/* width: 100%; */
+		word-wrap: break-word;
+		display: inline-block;
+	}
+
 	p {
 		text-transform: capitalize;
 		font-weight: 600;
@@ -121,10 +126,16 @@
 		flex-direction: column;
 		gap: 0.7rem;
 	}
+	.key-values {
+		display: flex;
+		gap: 0.5rem;
+	}
+
 	.border-section {
 		display: flex;
 		flex-direction: column;
 		gap: 1rem;
+		margin-top: 2rem;
 	}
 	.borders {
 		display: flex;
@@ -151,5 +162,28 @@
 		text-decoration: none;
 		color: #fff;
 		font-weight: 600;
+	}
+
+	@media screen and (min-width: 720px) {
+		aside {
+			flex-direction: row;
+		}
+		.details {
+			width: 50%;
+			flex: 1;
+		}
+	}
+	@media screen and (min-width: 768px) {
+		section {
+			flex-direction: row;
+		}
+		.img-holder,
+		.country-info {
+			/* flex: 1; */
+			width: 50%;
+		}
+		.img-holder img {
+			width: 90%;
+		}
 	}
 </style>

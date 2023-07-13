@@ -35,16 +35,19 @@
 		display: block;
 		border-radius: 10px;
 		overflow: hidden;
-		max-width: 280px;
+		width: 280px;
+		height: 350px;
 		text-decoration: none;
 	}
 	.img-holder {
-		height: 50%;
-		width: 100%;
 		overflow: hidden;
+		width: 100%;
+		height: 150px;
 	}
 	img {
+		height: 100%;
 		width: 100%;
+		/* object-fit: cover; */
 	}
 	h1 {
 		font-size: 1.15rem;

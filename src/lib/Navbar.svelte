@@ -12,13 +12,17 @@
 </nav>
 
 <style>
+	nav {
+		position: sticky;
+		top: 0px;
+	}
 	nav section {
-		max-width: 1200px;
 		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		padding: 1.5rem 1rem;
+		max-width: 1250px;
 	}
 
 	a {
@@ -40,16 +44,22 @@
 		font-size: 0.8rem;
 		text-transform: capitalize;
 	}
-	@media screen and (min-width: 768px) {
+	@media screen and (min-width: 520px) {
 		nav section {
-			padding-inline: 0rem;
+			padding-inline: 1.5rem;
 		}
-
+	}
+	@media screen and (min-width: 768px) {
 		a {
 			font-size: 1.2rem;
 		}
 		p {
 			font-size: 1rem;
+		}
+	}
+	@media screen and (min-width: 1200px) {
+		nav section {
+			padding-inline: 1rem;
 		}
 	}
 </style>

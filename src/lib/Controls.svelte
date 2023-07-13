@@ -18,13 +18,29 @@
 			<input type="text" placeholder="Search for a country..." />
 		</form>
 		<div class="filter-box">
-			<div class="filter box" on:click={handleDisplay}>
+			<div
+				class="filter box"
+				role="button"
+				tabindex="0"
+				on:keypress={handleDisplay}
+				on:click={handleDisplay}
+			>
 				<p>Filter by Region</p>
 				<i class="bx bx-chevron-down" />
 			</div>
 			<div class={`continents box ${displayContinents ? 'show' : ''}`}>
 				{#each continents as continent, id (id)}
-					<p on:click={handleDisplay}>{continent}</p>
+					<div
+						role="button"
+						class="region"
+						tabindex="0"
+						on:keypress={handleDisplay}
+						on:click={handleDisplay}
+					>
+						<p>
+							{continent}
+						</p>
+					</div>
 				{/each}
 			</div>
 		</div>
@@ -47,7 +63,6 @@
 			justify-content: space-between;
 		}
 
-		
 		p {
 			font-size: 1rem;
 		}
@@ -110,7 +125,7 @@
 		top: 110%;
 		overflow: hidden;
 	}
-	.continents p {
+	.region p{
 		padding: 0.8rem 1.5rem;
 		text-transform: capitalize;
 		font-weight: 300;
@@ -118,7 +133,7 @@
 		cursor: pointer;
 	}
 
-	.continents p:hover {
+	.region p:hover {
 		background-color: var(--Dark-Blue);
 	}
 
