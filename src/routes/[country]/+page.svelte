@@ -1,23 +1,17 @@
 <script>
 	export let data;
 	import SingleCountry from '$lib/template/SingleCountry.svelte';
-	// console.log(data.country[0].languages);
-	// console.log(data);
+	
 	$: country = data.country[0];
 	function ObjToArr(params) {
-		// if (params == undefined) {
-		// 	return;
-		// }
+		
 		const obj = params;
 		const keys = Object.keys(obj);
 		const values = keys.map((key) => obj[key]);
 
-		// console.log(values);
 		return values;
 	}
 
-	// console.log(ObjToArr(data.country[0].borders));
-	// console.log(data.country[0]);
 </script>
 
 <main>

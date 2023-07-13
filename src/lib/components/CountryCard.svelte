@@ -6,7 +6,6 @@
 	export let name;
 	export let common;
 	export let alt;
-	// console.log(common);
 </script>
 
 <a href={`/${common}`}>
