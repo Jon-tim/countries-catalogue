@@ -12,10 +12,11 @@ function toggleTheme() {
 		switchTheme: () =>
 			update((value) => {
 				!value;
-				const themeClass = value ? 'dark' : 'light';
-				document.documentElement.classList.toggle(themeClass);
-				// console.log(value);
-				return themeClass;
+				console.log(value);
+
+				// const themeClass = value ? 'dark' : 'light';
+				// document.documentElement.classList.toggle(themeClass);
+				// return { themeClass };
 			})
 	};
 }

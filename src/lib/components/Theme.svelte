@@ -1,19 +1,50 @@
-<!-- ThemeToggle.svelte -->
 <script>
 	import { onMount } from 'svelte';
-	import { theme } from '../store/theme';
-	console.log($theme);
+
+	let darkTheme = false;
+
+	if (typeof localStorage !== 'undefined') {
+		const storedTheme = localStorage.getItem('theme');
+		if (storedTheme !== null) {
+			darkTheme = storedTheme === 'dark';
+		}
+	}
+
+	if (typeof window !== 'undefined') {
+		darkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+	}
+
+	function switchTheme() {
+		darkTheme = !darkTheme;
+
+		if (darkTheme == true) {
+			document.documentElement.classList.remove('light');
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+			document.documentElement.classList.add('light');
+		}
+		localStorage.setItem('theme', darkTheme ? 'dark' : 'light');
+	}
+
+	onMount(() => {
+		const storedTheme = localStorage.getItem('theme');
+		if (storedTheme !== null) {
+			darkTheme = storedTheme === 'dark';
+		} else {
+			darkTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		}
+		document.documentElement.classList.add(darkTheme ? 'dark' : 'light');
+	});
 </script>
 
-<!-- <button on:click={toggleTheme}>Toggle Theme</button> -->
-
-<button on:click={theme.switchTheme()}>
-	{#if $theme === 'light'}
-		<i class="bx bxs-moon" />
-		<p>dark mode</p>
-	{:else if $theme == 'dark'}
+<button on:click={switchTheme}>
+	{#if darkTheme}
 		<i class="bx bxs-sun" />
 		<p>light mode</p>
+	{:else}
+		<i class="bx bxs-moon" />
+		<p>dark mode</p>
 	{/if}
 </button>
 

@@ -3,7 +3,6 @@
 	import SingleCountry from '$lib/template/SingleCountry.svelte';
 
 	$: country = data.country[0];
-	// console.log(data.country[0].capital);
 	function ObjToArr(params) {
 		const obj = params;
 		const keys = Object.keys(obj);

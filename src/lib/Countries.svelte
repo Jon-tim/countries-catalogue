@@ -1,6 +1,5 @@
 <script>
 	export let info;
-	// console.log(data);
 	import CountryCard from './components/CountryCard.svelte';
 	
 </script>

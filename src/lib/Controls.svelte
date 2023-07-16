@@ -9,15 +9,19 @@
 		displayContinents = !displayContinents;
 	}
 
-	// logic for searching for country
 	let countryName = '';
-	// console.log(countryName);
 </script>
 
 <section class="container">
 	<section>
 		<form class="box">
-			<button class="search" on:click={filter(countryName)}>
+			<button
+				class="search"
+				on:click={() => {
+					filter(countryName);
+					countryName = '';
+				}}
+			>
 				<i class="bx bx-search" />
 			</button>
 			<input type="text" placeholder="Search for a country..." bind:value={countryName} />
