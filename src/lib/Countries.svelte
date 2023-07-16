@@ -1,7 +1,6 @@
 <script>
 	export let info;
 	import CountryCard from './components/CountryCard.svelte';
-	
 </script>
 
 <main>
@@ -9,12 +8,12 @@
 		{#each info as country, id (id)}
 			<CountryCard
 				name={country.name.official}
-				common={country.name.common}
 				capital={country.capital == undefined ? 'none recorded yet' : country.capital.join(', ')}
 				img={country.flags.png}
 				alt={country.flags.alt}
 				population={country.population}
 				region={country.region}
+				cca={country.cca2}
 			/>
 		{/each}
 	</section>
@@ -31,5 +30,4 @@
 		gap: 2rem;
 		justify-content: center;
 	}
-	
 </style>

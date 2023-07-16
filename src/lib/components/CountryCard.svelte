@@ -4,11 +4,11 @@
 	export let region;
 	export let capital;
 	export let name;
-	export let common;
+	export let cca;
 	export let alt;
 </script>
 
-<a href={`/${common}`}>
+<a href={`/${cca}`}>
 	<div class="img-holder">
 		<img src={img} {alt} />
 	</div>
