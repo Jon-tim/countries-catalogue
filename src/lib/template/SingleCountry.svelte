@@ -99,8 +99,8 @@
 		width: 100%;
 	}
 	img {
+		height: 100%;
 		width: 100%;
-		height: 300px;
 		object-position: center;
 	}
 	p,
@@ -171,6 +171,9 @@
 		.details {
 			width: 50%;
 			flex: 1;
+		}
+		.img-holder img {
+			height: 300px;
 		}
 	}
 	@media screen and (min-width: 768px) {
