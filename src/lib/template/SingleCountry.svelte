@@ -11,6 +11,7 @@
 	export let currency;
 	export let languages;
 	export let borderCountries;
+	console.log(borderCountries);
 </script>
 
 <section>
@@ -66,9 +67,9 @@
 						<button on:click={() => window.history.back()}>Click here to go back home</button>
 					</div>
 				{:else}
-					{#each borderCountries as border, id (id)}
-						<a href={`/${border}`} class="border">
-							<p>{border}</p>
+					{#each borderCountries as borders, id (id)}
+						<a href={`/${borders.cca2}`} class="border">
+							<p>{borders.border}</p>
 						</a>
 					{/each}
 				{/if}

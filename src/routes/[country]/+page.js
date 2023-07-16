@@ -5,6 +5,7 @@ export async function load({ fetch, params }) {
 	const country = await res.json();
 
 	const borderArray = [];
+
 	if (country[0].borders == undefined) {
 		return { country, borderArray };
 	}
@@ -15,7 +16,9 @@ export async function load({ fetch, params }) {
 		const borders = await fetch('https://restcountries.com/v3.1/alpha?codes=' + item);
 		const bord = await borders.json();
 		const result = bord[0].name.common;
-		return borderArray.push(result);
+		const cca = bord[0].cca2;
+		
+		borderArray.push({ border: result, cca2: cca });
 	});
 
 	await Promise.all(border);
