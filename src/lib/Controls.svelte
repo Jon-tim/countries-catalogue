@@ -1,21 +1,26 @@
 <script>
 	import '../Styles/colours.css';
-
-	const continents = ['africa', 'asia', 'oceania', 'america', 'europe'];
+	export let search;
+	export let filter;
+	const continents = ['all', 'africa', 'asia', 'oceania', 'america', 'europe'];
 	let displayContinents = false;
 
 	function handleDisplay() {
 		displayContinents = !displayContinents;
 	}
+
+	// logic for searching for country
+	let countryName = '';
+	// console.log(countryName);
 </script>
 
 <section class="container">
 	<section>
 		<form class="box">
-			<button>
+			<button class="search" on:click={filter(countryName)}>
 				<i class="bx bx-search" />
 			</button>
-			<input type="text" placeholder="Search for a country..." />
+			<input type="text" placeholder="Search for a country..." bind:value={countryName} />
 		</form>
 		<div class="filter-box">
 			<div
@@ -36,6 +41,7 @@
 						tabindex="0"
 						on:keypress={handleDisplay}
 						on:click={handleDisplay}
+						on:click={search(event.target.textContent)}
 					>
 						<p>
 							{continent}
@@ -82,13 +88,18 @@
 		padding: 1rem 2rem;
 		border-radius: 0.4rem;
 	}
+	input {
+		width: 100%;
+	}
 
 	i {
 		font-size: 1.2rem;
 		display: block;
 	}
 
-	button {
+	.search {
+		box-shadow: none;
+		background: transparent;
 		cursor: pointer;
 	}
 
@@ -99,7 +110,7 @@
 		outline: none;
 		border: none;
 		background-color: transparent;
-		color: white;
+
 		font-weight: 600;
 	}
 
@@ -125,7 +136,7 @@
 		top: 110%;
 		overflow: hidden;
 	}
-	.region p{
+	.region p {
 		padding: 0.8rem 1.5rem;
 		text-transform: capitalize;
 		font-weight: 300;
@@ -133,9 +144,22 @@
 		cursor: pointer;
 	}
 
+	/* @media (prefers-color-scheme: dark) {
+		.region p:hover {
+			background-color: var(--Dark-Blue);
+		}
+		input {
+			color: white;
+		}
+	} */
+	/* @media (prefers-color-scheme: light) { */
 	.region p:hover {
-		background-color: var(--Dark-Blue);
+		background-color: var(--card-color);
 	}
+	input {
+		color: var(--text-color);
+	}
+	/* } */
 
 	.show {
 		display: block;

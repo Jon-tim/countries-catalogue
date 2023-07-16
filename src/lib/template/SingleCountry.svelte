@@ -39,7 +39,7 @@
 				</div>
 				<div class="key-values">
 					<p class="key">capital:</p>
-					<span class="value">{capital.join(', ')}</span>
+					<span class="value">{capital}</span>
 				</div>
 			</div>
 			<div class="details">
@@ -53,7 +53,7 @@
 				</div>
 				<div class="key-values lang">
 					<p class="key">languages:</p>
-					<span class="value">{languages.join(', ')}</span>
+					<span class="value">{languages}</span>
 				</div>
 			</div>
 		</aside>
@@ -119,7 +119,7 @@
 		font-weight: 600;
 	}
 	span {
-		color: white;
+		color: var(--text-color);
 	}
 	.details {
 		display: flex;
@@ -160,7 +160,7 @@
 		font-size: inherit;
 		cursor: pointer;
 		text-decoration: none;
-		color: #fff;
+		color: var(--text-color);
 		font-weight: 600;
 	}
 

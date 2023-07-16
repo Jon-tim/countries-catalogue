@@ -1,8 +1,8 @@
 <script>
-	export let data;
+	export let info;
 	// console.log(data);
 	import CountryCard from './components/CountryCard.svelte';
-	$: info = data.countries;
+	
 </script>
 
 <main>
@@ -11,7 +11,7 @@
 			<CountryCard
 				name={country.name.official}
 				common={country.name.common}
-				capital={country.capital}
+				capital={country.capital == undefined ? 'none recorded yet' : country.capital.join(', ')}
 				img={country.flags.png}
 				alt={country.flags.alt}
 				population={country.population}

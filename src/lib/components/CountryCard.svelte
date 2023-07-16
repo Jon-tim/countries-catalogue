@@ -35,7 +35,7 @@
 		border-radius: 10px;
 		overflow: hidden;
 		width: 280px;
-		height: 350px;
+		height: 360px;
 		text-decoration: none;
 	}
 	.img-holder {
@@ -59,9 +59,6 @@
 	p {
 		text-transform: capitalize;
 		font-weight: 600;
-	}
-	span {
-		color: white;
 	}
 
 	.country-details {

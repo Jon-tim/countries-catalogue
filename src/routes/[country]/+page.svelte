@@ -1,21 +1,20 @@
 <script>
 	export let data;
 	import SingleCountry from '$lib/template/SingleCountry.svelte';
-	
+
 	$: country = data.country[0];
+	// console.log(data.country[0].capital);
 	function ObjToArr(params) {
-		
 		const obj = params;
 		const keys = Object.keys(obj);
 		const values = keys.map((key) => obj[key]);
 
 		return values;
 	}
-
 </script>
 
 <main>
-	<button on:click={() => window.history.back()}>go back</button>
+	<button on:click={() => window.history.back()}> <p>go back</p> </button>
 
 	<SingleCountry
 		domain={country.tld}
@@ -28,11 +27,11 @@
 		population={country.population || 'no one is here'}
 		region={country.region}
 		subRegion={country.subregion || "it's just one big place"}
-		capital={country.capital || 'none recorded yet'}
+		capital={country.capital == undefined ? 'none recorded yet' : country.capital.join(', ')}
 		currency={data.country[0].currencies
 			? Object.values(data.country[0].currencies)[0].name
 			: "we don't spend here 💸"}
-		languages={country.languages ? Object.values(country.languages) : 'kjzjvhf 🤐'}
+		languages={country.languages ? Object.values(country.languages).join(', ') : 'kjzjvhf 🤐'}
 		borderCountries={data.borderArray}
 	/>
 </main>
@@ -52,11 +51,11 @@
 	button {
 		max-width: max-content;
 		text-decoration: none;
-		color: white;
 		font-weight: 600;
 		text-transform: capitalize;
 		padding: 0.5rem 1rem;
 		cursor: pointer;
+		border: none;
 	}
 	@media screen and (min-width: 520px) {
 		main {
